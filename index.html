@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <!-- displays site properly based on user's device -->
 
     <link
@@ -11,25 +14,108 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Montserrat:ital,wght@0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
     <title>Pricing component</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    Our Pricing Annually Monthly Basic &dollar;19.99 &dollar;199.99 500 GB
-    Storage 2 Users Allowed Send up to 3 GB Learn More Professional
-    &dollar;24.99 &dollar;249.99 1 TB Storage 5 Users Allowed Send up to 10 GB
-    Learn More Master &dollar;39.99 &dollar;399.99 2 TB Storage 10 Users Allowed
-    Send up to 20 GB Learn More
+    <div class="container">
+      <div class="title">
+        <h2 id="pricing">Our Pricing</h2>
+      </div>
+
+      <div class="period">
+        <p id="plan-type">
+          Annually
+          <label class="switch">
+            <input id="tog" type="checkbox" checked />
+            <span
+              class="slider round"
+              onclick="toggleAmount()"
+            ></span>
+          </label>
+          Monthly
+        </p>
+      </div>
+
+      <div class="plans">
+        <div class="basic hovr">
+          <h4>Basic</h4>
+          <h1>
+            &dollar;<span class="amount" id="toggle-amount"
+              >19.99</span
+            >
+          </h1>
+          <hr />
+          <p>500 GB Storage</p>
+          <hr />
+          <p>2 Users Allowed</p>
+          <hr />
+          <p>Send up to 3 GB</p>
+          <hr />
+          <button id="learn">LEARN MORE</button>
+        </div>
+
+        <div class="professional hovr">
+          <h4>Professional</h4>
+          <h1>
+            &dollar;<span class="amount" id="toggle-amount"
+              >24.99</span
+            >
+          </h1>
+          <hr />
+          <p>1 TB Storage</p>
+          <hr />
+          <p>5 Users Allowed</p>
+          <hr />
+          <p>Send up to 10 GB</p>
+          <hr />
+          <button id="learn">LEARN MORE</button>
+        </div>
+
+        <div class="master hovr">
+          <h4>Master</h4>
+          <h1>
+            &dollar;<span class="amount" id="toggle-amount"
+              >39.99</span
+            >
+          </h1>
+          <hr />
+          <p>2 TB Storage</p>
+          <hr />
+          <p>10 Users Allowed</p>
+          <hr />
+          <p>Send up to 20 GB</p>
+          <hr />
+          <button id="learn">LEARN MORE</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleAmount() {
+        let x = document.getElementsByClassName('amount');
+        if (document.getElementById('tog').checked) {
+          x[0].innerHTML = '199.99';
+          x[1].innerHTML = '249.99';
+          x[2].innerHTML = '399.99';
+        } else {
+          x[0].innerHTML = '19.99';
+          x[1].innerHTML = '24.99';
+          x[2].innerHTML = '39.99';
+        }
+      }
+    </script>
   </body>
 </html>
